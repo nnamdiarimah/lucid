@@ -23454,9 +23454,8 @@ export function isInstantiated() {
  */
 async function instantiateModule(opts) {
   // Temporary exception for fresh framework
-  const wasmUrl = import.meta.url.includes("_frsh")
-    ? opts.url
-    : new URL("cardano_multiplatform_lib_bg.wasm", import.meta.url);
+  const wasmUrl = new URL('/assets/cardano_multiplatform_lib_bg.wasm', window.location.origin);
+
   const decompress = opts.decompress;
   const isFile = wasmUrl.protocol === "file:";
 
